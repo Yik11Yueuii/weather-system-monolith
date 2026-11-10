@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>天气查询 · 单体版练习</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="layout">
+    <header class="header">
+      <div class="eyebrow">SPRING BOOT · MONOLITH</div>
+      <h1>今天的天气 <span aria-hidden="true">☁️</span></h1>
+      <p>把原来的天气微服务重做成一个能看懂、能自己手敲的 Java 单体应用。</p>
+    </header>
+    <section class="card">
+      <div class="topline">
+        <label for="city-select">选择城市</label>
+        <span id="source-pill" class="pill">读取中…</span>
+      </div>
+      <div class="controls">
+        <select id="city-select" aria-label="选择城市"></select>
+        <button id="reload-btn" type="button">刷新查询</button>
+      </div>
+      <p id="message" role="status" aria-live="polite">正在准备城市列表…</p>
+      <div id="weather" class="weather" hidden>
+        <div class="weather-main">
+          <div>
+            <div id="city-name" class="city-name"></div>
+            <div id="description" class="description"></div>
+          </div>
+          <div id="temperature" class="temperature"></div>
+        </div>
+        <div class="meta"><span>湿度 <strong id="humidity"></strong></span><span>更新时间 <strong id="observed-at"></strong></span></div>
+      </div>
+    </section>
+    <section class="card forecast-card">
+      <h2>未来 7 日</h2>
+      <div id="forecast" class="forecast"><p class="subtle">选择城市后显示预报</p></div>
+    </section>
+    <footer>单体架构：浏览器 → Controller → Service → DataSource。默认显示演示数据，不代表实时预报。</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,9 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: weather-system-monolith
+weather:
+  # demo: offline fake data (for learning); live: Open-Meteo real forecast (internet required)
+  mode: ${WEATHER_MODE:demo}
+  cache-seconds: ${WEATHER_CACHE_SECONDS:600}
